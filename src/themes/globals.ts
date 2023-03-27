@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -8,5 +8,14 @@ export const GlobalStyles = createGlobalStyle`
     outline: none;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
+    font-family: "Arial";
   }
-`
+
+  ${({ theme }) =>
+    css`
+      html {
+        background-color: ${theme.colors.secondary};
+      }
+    `}
+  
+`;
