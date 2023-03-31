@@ -11,7 +11,7 @@ interface DropdownProps {
   ];
 }
 
-export function Dropdown({ triggerText, options }: DropdownProps) {
+export const Dropdown = ({ triggerText, options }: DropdownProps) => {
   const RenderMenuItems = () => {
     return options.map(({ label, onClick }, index) => {
       return (
@@ -36,7 +36,7 @@ export function Dropdown({ triggerText, options }: DropdownProps) {
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
   );
-}
+};
 
 const StyledButton = styled.button`
   font-size: 18px;

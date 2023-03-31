@@ -5,7 +5,9 @@ import { spaceLayoutUtilities } from "@/shared/utils/styledUtilities";
 import { Dropdown, Row } from "@/components";
 import { clearToken } from "@/shared/helpers/token";
 
-export const Navbar = (props: any) => {
+interface NavbarProps {}
+
+export const Navbar = ({}: NavbarProps) => {
   const router = useRouter();
 
   return (

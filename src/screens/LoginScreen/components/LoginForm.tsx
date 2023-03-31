@@ -7,7 +7,7 @@ interface LoginFormProps {
   onFormSubmit: (values: UserProps) => void;
 }
 
-export function LoginForm({ onFormSubmit }: LoginFormProps) {
+export const LoginForm = ({ onFormSubmit }: LoginFormProps) => {
   const [formValues, setFormValues] = useState<UserProps>({
     user: "",
     password: "",
@@ -51,7 +51,7 @@ export function LoginForm({ onFormSubmit }: LoginFormProps) {
       <Button>Fazer Login</Button>
     </StyledForm>
   );
-}
+};
 
 const StyledForm = styled.form`
   padding: 16px;

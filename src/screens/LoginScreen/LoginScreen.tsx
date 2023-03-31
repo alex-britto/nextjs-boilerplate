@@ -5,9 +5,7 @@ import { FormContainer, PageContainer } from "./styles";
 import { setToken } from "@/shared/helpers/token";
 import Head from "next/head";
 
-interface LoginProps {}
-
-export function LoginScreen(props: LoginProps) {
+export const LoginScreen = () => {
   const router = useRouter();
 
   const handleFormSubmit = ({ user, password }: UserProps) => {
@@ -29,4 +27,4 @@ export function LoginScreen(props: LoginProps) {
       </PageContainer>
     </>
   );
-}
+};

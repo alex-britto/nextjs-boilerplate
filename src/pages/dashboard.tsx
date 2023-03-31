@@ -1,3 +1,1 @@
-import { DashboardScreen } from "@/screens";
-
-export default DashboardScreen;
+export { DashboardScreen as default } from "@/screens";

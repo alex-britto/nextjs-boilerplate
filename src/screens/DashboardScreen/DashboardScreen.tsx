@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { getToken } from "@/shared/helpers/token";
 import Head from "next/head";
+import { LoggedLayout } from "@/layout/logged";
 
-interface DashboardScreenProps {}
-
-export function DashboardScreen(props: DashboardScreenProps) {
+export const DashboardScreen = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -15,11 +14,11 @@ export function DashboardScreen(props: DashboardScreenProps) {
   }, [router]);
 
   return (
-    <>
+    <LoggedLayout>
       <Head>
         <title>Linda Pagina Dashboard</title>
       </Head>
       <h1>Dashboard</h1>
-    </>
+    </LoggedLayout>
   );
-}
+};

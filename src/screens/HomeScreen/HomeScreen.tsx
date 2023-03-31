@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 
-export function HomeScreen() {
+export const HomeScreen = () => {
   return (
     <>
       <Head>
@@ -16,4 +16,4 @@ export function HomeScreen() {
       </main>
     </>
   );
-}
+};
