@@ -1,5 +1,6 @@
-import { Navbar } from "@/components";
 import { ReactNode } from "react";
+
+import { Navbar } from "@/components";
 
 export const LoggedLayout = ({ children }: { children: ReactNode }) => {
   return (

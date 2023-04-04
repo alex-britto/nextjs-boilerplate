@@ -1,9 +1,12 @@
-import styled, { css } from "styled-components";
 import { useRouter } from "next/router";
+
+import styled, { css } from "styled-components";
+
+import { Dropdown, Row } from "@/components";
+
+import { clearToken } from "@/shared/helpers/token";
 import { SpaceLayoutProps } from "@/shared/types/styledSystem";
 import { spaceLayoutUtilities } from "@/shared/utils/styledUtilities";
-import { Dropdown, Row } from "@/components";
-import { clearToken } from "@/shared/helpers/token";
 
 interface NavbarProps {}
 

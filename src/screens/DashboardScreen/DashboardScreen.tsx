@@ -1,7 +1,9 @@
 import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { getToken } from "@/shared/helpers/token";
+
 import Head from "next/head";
+import { useRouter } from "next/router";
+
+import { getToken } from "@/shared/helpers/token";
 import { LoggedLayout } from "@/layout/logged";
 
 export const DashboardScreen = () => {

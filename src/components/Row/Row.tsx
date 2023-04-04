@@ -1,5 +1,7 @@
 import { HTMLAttributes } from "react";
+
 import styled from "styled-components";
+
 import { SpaceLayoutProps } from "@/shared/types/styledSystem";
 import { spaceLayoutUtilities } from "@/shared/utils/styledUtilities";
 
