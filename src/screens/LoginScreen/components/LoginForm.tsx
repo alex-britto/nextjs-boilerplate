@@ -1,22 +1,22 @@
-import { ChangeEvent, FormEvent, useState } from "react";
-import styled, { css } from "styled-components";
-import { Button, Input } from "@/components";
-import { UserProps } from "@/shared/interfaces";
+import { ChangeEvent, FormEvent, useState } from "react"
+import styled, { css } from "styled-components"
+import { Button, Input } from "@/components"
+import { UserProps } from "@/shared/interfaces"
 
 interface LoginFormProps {
-  onFormSubmit: (values: UserProps) => void;
+  onFormSubmit: (values: UserProps) => void
 }
 
 export const LoginForm = ({ onFormSubmit }: LoginFormProps) => {
   const [formValues, setFormValues] = useState<UserProps>({
     user: "",
     password: "",
-  });
+  })
 
   const handleSubmit = (e: FormEvent<EventTarget>) => {
-    e.preventDefault();
-    onFormSubmit(formValues);
-  };
+    e.preventDefault()
+    onFormSubmit(formValues)
+  }
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFormValues(
@@ -25,33 +25,35 @@ export const LoginForm = ({ onFormSubmit }: LoginFormProps) => {
           ...oldState,
           [event.target.name]: event.target.value,
         } as UserProps)
-    );
-  };
+    )
+  }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
       <h1>Acessar</h1>
       <Input
+        name="user"
+        value={formValues.user}
         placeholder="Usuário"
+        data-cy="user-input"
+        onChange={handleInputChange}
         mb="16px"
         width="250px"
-        name="user"
-        onChange={handleInputChange}
-        value={formValues.user}
       />
       <Input
+        type="password"
+        name="password"
+        value={formValues.password}
         placeholder="Senha"
+        data-cy="password-input"
+        onChange={handleInputChange}
         mb="32px"
         width="250px"
-        name="password"
-        type="password"
-        onChange={handleInputChange}
-        value={formValues.password}
       />
-      <Button>Fazer Login</Button>
+      <Button data-cy="login-button">Fazer Login</Button>
     </StyledForm>
-  );
-};
+  )
+}
 
 const StyledForm = styled.form`
   padding: 16px;
@@ -72,4 +74,4 @@ const StyledForm = styled.form`
     border-right: 2px solid ${theme.colors.white.medium};
     border-bottom: 2px solid ${theme.colors.white.medium};
   `}
-`;
+`
