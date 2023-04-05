@@ -1,8 +1,34 @@
-import { Button, Column, Input, Row, Text } from "@/components";
+import { FC } from "react"
 
-import { theme } from "@/theme";
+import { useForm } from "react-hook-form"
 
-export const Login = () => {
+import { Button, Column, Input, Row, Text } from "@/components"
+
+import { useUser } from "@/shared/providers"
+import { UserProps } from "@/shared/interfaces/user"
+import { setTokenLS, setUserLS } from "@/shared/helpers"
+
+import { theme } from "@/theme"
+
+export const Login: FC = () => {
+  const { setToken, setUser } = useUser()
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<UserProps>({
+    // resolver: yupResolver(schema),
+  })
+
+  const handleLogin = () => {
+    setToken("MY_TOKEN")
+    setUser({ email: "my_email", password: "123456" })
+
+    setTokenLS("MY_TOKEN")
+    setUserLS({ email: "my_email", password: "123456" })
+  }
+
   return (
     <Column
       height="100vh"
@@ -18,7 +44,7 @@ export const Login = () => {
         boxShadow={`4px 6px 30px ${theme.colors.white.dark}`}
       >
         <Column width="544px" justifyContent="center">
-          <form>
+          <form onSubmit={handleSubmit(handleLogin)}>
             <Column width="320px" m="0 auto">
               <Text
                 mb="32px"
@@ -28,15 +54,34 @@ export const Login = () => {
               >
                 Entrar
               </Text>
+
               <Text variant="small" fontWeight="600">
                 E-mail*
               </Text>
-              <Input placeholder="e-mail" height="48px" mt="8px" mb="24px" />
+              <Input
+                placeholder="e-mail"
+                height="48px"
+                mt="8px"
+                mb="24px"
+                {...register("email")}
+              />
+              <Text variant="tiny" className="mt-2 mb-6" color="red">
+                E-mail incorreto
+              </Text>
 
               <Text variant="small" fontWeight="600" mt="80px">
                 Senha*
               </Text>
-              <Input placeholder="senha" height="48px" mt="8px" />
+              <Input
+                placeholder="senha"
+                height="48px"
+                mt="8px"
+                {...register("password")}
+              />
+              <Text variant="tiny" className="mt-2 mb-8" color="red">
+                Senha incorreta
+              </Text>
+
               <Button width="207px" height="48px" m="32px auto 0">
                 Entrar
               </Button>
@@ -55,10 +100,9 @@ export const Login = () => {
           <Text variant="medium" fontWeight="700" mb="24px">
             Olá, tech solver!
           </Text>
-          <Text>Você está no Cockpit,</Text>
-          <Text>o software de gestão da Nav9.</Text>
+          <Text>Você está no Boilerplate da Nav9</Text>
         </Column>
       </Row>
     </Column>
-  );
-};
+  )
+}

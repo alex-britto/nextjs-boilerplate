@@ -1,19 +1,19 @@
-import { useEffect } from "react";
+import { useEffect } from "react"
 
-import Head from "next/head";
-import { useRouter } from "next/router";
+import Head from "next/head"
+import { useRouter } from "next/router"
 
-import { getToken } from "@/shared/helpers/token";
-import { LoggedLayout } from "@/layout/logged";
+import { getToken } from "@/shared/helpers/token"
+import { LoggedLayout } from "@/layout/logged"
 
 export const DashboardScreen = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   useEffect(() => {
     if (!getToken()) {
-      router.push("/login");
+      router.push("/login")
     }
-  }, [router]);
+  }, [router])
 
   return (
     <LoggedLayout>
@@ -22,5 +22,5 @@ export const DashboardScreen = () => {
       </Head>
       <h1>Dashboard</h1>
     </LoggedLayout>
-  );
-};
+  )
+}
