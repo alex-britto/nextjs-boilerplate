@@ -2,14 +2,16 @@ import { DefaultTheme } from "styled-components";
 
 export const theme: DefaultTheme = {
   colors: {
-    primary: "#fff",
-    secondary: "#f8f9fb ",
+    primary: "#3F4DF9",
+    secondary: "#f8f9fb",
     dark: "#2E3440",
-    gray: "#4C566A",
+    black: "#000000",
+    gray: "#f2f2f2",
     white: {
+      default: "#ffffff",
       light: "#909090",
       medium: "#E5E9F0",
-      dark: "#D8DEE9",
+      dark: "#e6e6e6",
     },
     blue: {
       light: "#88C0D0",
@@ -20,6 +22,6 @@ export const theme: DefaultTheme = {
   spaces: {
     s0: "0px",
     s1: "4px",
-    s2: "8px",
+    s2: "16px",
   },
 };

@@ -1,4 +1,4 @@
-import { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -11,5 +11,9 @@ export const GlobalStyles = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     
     font-family: "Arial";
+  }
+
+  body, input, button, p, label {
+    font-family: 'Open Sans', sans-serif;
   }
 `;

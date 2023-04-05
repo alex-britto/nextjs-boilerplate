@@ -7,14 +7,15 @@ export const Button = styled.button<SpaceLayoutProps>`
   ${spaceLayoutUtilities}
 
   cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+
   border-radius: 4px;
 
   ${({ theme }) => css`
-    padding: ${theme.spaces.s2};
+    padding: 0 ${theme.spaces.s2};
 
-    border: 2px solid ${theme.colors.blue.dark};
-
-    color: ${theme.colors.primary};
-    background-color: ${theme.colors.blue.dark};
+    color: ${theme.colors.white.default};
+    background-color: ${theme.colors.primary};
   `}
 `;

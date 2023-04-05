@@ -30,10 +30,20 @@ const TEXT_VARIANTS = {
 };
 
 export const Text = styled.p<TextProps>`
-  ${({ fontWeight = "400", variant = "regular", color }) => css`
+  ${({
+    fontWeight = "400",
+    variant = "regular",
+    color,
+    textAlign = "start",
+    mb = "0px",
+  }) => css`
+    text-align: ${textAlign};
+
     font-weight: ${fontWeight};
     font-size: ${TEXT_VARIANTS[variant]["font-size"]};
     line-height: ${TEXT_VARIANTS[variant]["line-height"]};
+
+    margin-bottom: ${mb};
 
     color: ${color};
   `}
