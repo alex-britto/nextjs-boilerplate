@@ -1,17 +1,19 @@
-import styled, { css } from "styled-components";
-import { SpaceLayoutProps } from "@/shared/types/styledSystem";
-import { spaceLayoutUtilities } from "@/shared/utils/styledUtilities";
+import styled, { css } from "styled-components"
 
-export const Button = styled.button<SpaceLayoutProps>`
-  ${spaceLayoutUtilities}
+import { DisplayProps } from "@/shared/types/styledSystem"
+import { displayUtilities } from "@/shared/utils/styledUtilities"
 
-  cursor: pointer;
-  border-radius: 4px;
+export const Button = styled.button<DisplayProps>(
+  displayUtilities,
+  ({ theme }) => css`
+    padding: 0 ${theme.spaces.s2};
 
-  ${({ theme }) => css`
-    padding: ${theme.spaces.s2};
-    border: 2px solid ${theme.colors.blue.dark};
-    background-color: ${theme.colors.blue.dark};
-    color: ${theme.colors.primary};
-  `}
-`;
+    color: ${theme.colors.white.default};
+    background-color: ${theme.colors.primary};
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+
+    border-radius: 4px;
+  `
+)

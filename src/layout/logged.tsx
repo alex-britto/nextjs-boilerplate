@@ -1,14 +1,12 @@
-import { Navbar } from "@/components";
-import { ReactNode } from "react";
+import { Column, Navbar } from "@/components";
 
-export const LoggedLayout = ({ children }: { children: ReactNode }) => {
+import { Props } from "@/shared/interfaces/props";
+
+export const LoggedLayout = ({ children }: Props) => {
   return (
     <>
       <Navbar />
-      <main>{children}</main>
-      <footer>
-        <p>Isso é o footer. Você está logado</p>
-      </footer>
+      <Column px="80px">{children}</Column>
     </>
   );
 };

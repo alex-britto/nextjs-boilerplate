@@ -1,57 +1,61 @@
-import styled, { css } from "styled-components";
-import { useRouter } from "next/router";
-import { SpaceLayoutProps } from "@/shared/types/styledSystem";
-import { spaceLayoutUtilities } from "@/shared/utils/styledUtilities";
-import { Dropdown, Row } from "@/components";
-import { clearToken } from "@/shared/helpers/token";
+import { useRouter } from "next/router"
+
+import styled, { css } from "styled-components"
+
+import { Dropdown, Row, Text } from "@/components"
+
+import { clearUser } from "@/shared/helpers/user"
+import { DisplayProps } from "@/shared/types/styledSystem"
+import { displayUtilities } from "@/shared/utils/styledUtilities"
 
 interface NavbarProps {}
 
 export const Navbar = ({}: NavbarProps) => {
-  const router = useRouter();
+  const router = useRouter()
 
   return (
     <StyledNavbar mb="16px">
-      <span>P.O.C</span>
+      <Text fontWeight="600">Boilerplate</Text>
       <Row>
-        <p>Olá Fulano de Tal</p>
         <Dropdown
-          triggerText="Menu"
+          triggerText="Nome do usuário"
           options={[
+            { label: "Perfil" },
             {
-              label: "Logout",
+              label: "Sair",
               onClick: () => {
-                clearToken();
-                router.push("/");
+                router.push("/")
+                clearUser()
               },
             },
           ]}
         />
       </Row>
     </StyledNavbar>
-  );
-};
+  )
+}
 
-const StyledNavbar = styled.nav<SpaceLayoutProps>`
-  ${spaceLayoutUtilities}
+const StyledNavbar = styled.nav<DisplayProps>(
+  displayUtilities,
+  ({ theme }) => css`
+    width: 100%;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 20px;
-  font-size: 18px;
+    padding: 20px 80px;
 
-  span {
-    font-size: 32px;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-  p:first-of-type {
-    margin-right: 16px;
-  }
+    span {
+      font-size: 32px;
+    }
 
-  ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
+    p:first-of-type {
+      margin-right: 16px;
+    }
+
     border-bottom: 2px solid ${theme.colors.white.dark};
-  `}
-`;
+
+    background-color: ${theme.colors.white};
+  `
+)

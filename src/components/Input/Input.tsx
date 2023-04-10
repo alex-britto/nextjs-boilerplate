@@ -1,14 +1,14 @@
-import styled, { css } from "styled-components";
-import { SpaceLayoutProps } from "@/shared/types/styledSystem";
-import { spaceLayoutUtilities } from "@/shared/utils/styledUtilities";
+import styled, { css } from "styled-components"
 
-export const Input = styled.input<SpaceLayoutProps>`
-  ${spaceLayoutUtilities}
+import { DisplayProps } from "@/shared/types/styledSystem"
+import { displayUtilities } from "@/shared/utils/styledUtilities"
 
-  ${({ theme }) => css`
+export const Input = styled.input<DisplayProps>(
+  displayUtilities,
+  ({ theme }) => css`
     padding: ${theme.spaces.s2};
-    border: 2px solid ${theme.colors.white.light};
-    background-color: ${theme.colors.secondary};
+
     border-radius: 4px;
-  `}
-`;
+    border: 1px solid ${theme.colors.white.light};
+  `
+)
