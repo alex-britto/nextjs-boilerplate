@@ -8,11 +8,4 @@ import {
   space,
 } from "styled-system";
 
-export const spaceLayoutUtilities = compose(
-  space,
-  layout,
-  color,
-  position,
-  border,
-  boxShadow
-);
+export const spaceLayoutUtilities = compose(space, layout);
