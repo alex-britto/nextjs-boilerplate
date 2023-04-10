@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-import { TextProps } from "@/shared/interfaces/components/text";
+import { TextProps } from "./interfaces";
 
 const TEXT_VARIANTS = {
   bigger: {

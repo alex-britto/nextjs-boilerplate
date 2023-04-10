@@ -5,13 +5,12 @@ import {
   useContext,
   useEffect,
   useState,
-} from "react"
+} from "react";
 
-import { UserContextData, UserProps } from "@/shared/interfaces/user"
+import { getUser } from "@/shared/helpers/user";
+import { UserContextData, UserProps } from "@/shared/interfaces/user";
 
-import { clearToken, clearUser, getToken, getUser } from "@/shared/helpers"
-
-const UserContext = createContext<UserContextData>({} as UserContextData)
+const UserContext = createContext<UserContextData>({} as UserContextData);
 
 const UserProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<UserProps>({
@@ -19,36 +18,27 @@ const UserProvider: FC<{ children: ReactNode }> = ({ children }) => {
     password: "",
     name: "",
     typeUser: "",
-  })
-  const [token, setToken] = useState<string>("")
+  });
 
-  const tokenSaved = getToken()
-  const userSaved = getUser()
+  const userSaved = getUser();
 
   useEffect(() => {
-    if (!tokenSaved) {
+    if (!user) {
       if (window.location.pathname !== "/login")
-        window.location.pathname = "/login"
-      return
+        window.location.pathname = "/login";
+      return;
     }
 
-    setToken(tokenSaved)
-    setUser(userSaved)
-  }, [tokenSaved])
-
-  const logout = () => {
-    clearToken()
-    clearUser()
-    window.location.pathname = "/login"
-  }
+    setUser(userSaved);
+  }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, token, setToken, logout }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
-  )
-}
+  );
+};
 
-const useUser = () => useContext(UserContext)
+const useUser = () => useContext(UserContext);
 
-export { UserProvider, useUser }
+export { UserProvider, useUser };

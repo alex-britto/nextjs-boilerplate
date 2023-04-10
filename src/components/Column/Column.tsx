@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 import { Row } from "@/components";
-import { ColumnProps } from "@/shared/interfaces/components/column";
+import { ColumnProps } from "./interfaces";
 
 export const Column = styled(Row)<ColumnProps>`
   ${({

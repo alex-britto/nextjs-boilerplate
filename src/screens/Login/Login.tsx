@@ -1,33 +1,32 @@
-import { FC } from "react"
+import { FC } from "react";
 
-import { useForm } from "react-hook-form"
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button, Column, Input, Row, Text } from "@/components"
+import { Button, Column, Input, Row, Text } from "@/components";
 
-import { useUser } from "@/shared/providers"
-import { UserProps } from "@/shared/interfaces/user"
-import { setTokenLS, setUserLS } from "@/shared/helpers"
+import { UserProps } from "@/shared/interfaces/user";
+import { credentailsSchema } from "@/shared/schemas/credentials";
 
-import { theme } from "@/theme"
+import { theme } from "@/theme";
+import { setUserLS } from "@/shared/helpers/user";
 
 export const Login: FC = () => {
-  const { setToken, setUser } = useUser()
+  const router = useRouter();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<UserProps>({
-    // resolver: yupResolver(schema),
-  })
+    resolver: zodResolver(credentailsSchema),
+  });
 
-  const handleLogin = () => {
-    setToken("MY_TOKEN")
-    setUser({ email: "my_email", password: "123456" })
-
-    setTokenLS("MY_TOKEN")
-    setUserLS({ email: "my_email", password: "123456" })
-  }
+  const handleLogin = (data: UserProps) => {
+    setUserLS(data);
+    router.push("/dashboard");
+  };
 
   return (
     <Column
@@ -62,14 +61,16 @@ export const Login: FC = () => {
                 placeholder="e-mail"
                 height="48px"
                 mt="8px"
-                mb="24px"
+                {...(!errors.email && { mb: "24px" })}
                 {...register("email")}
               />
-              <Text variant="tiny" className="mt-2 mb-6" color="red">
-                E-mail incorreto
-              </Text>
+              {errors.email && (
+                <Text color="red" variant="small" mb="24px">
+                  {errors.email.message}
+                </Text>
+              )}
 
-              <Text variant="small" fontWeight="600" mt="80px">
+              <Text variant="small" fontWeight="600">
                 Senha*
               </Text>
               <Input
@@ -78,9 +79,11 @@ export const Login: FC = () => {
                 mt="8px"
                 {...register("password")}
               />
-              <Text variant="tiny" className="mt-2 mb-8" color="red">
-                Senha incorreta
-              </Text>
+              {errors.password && (
+                <Text color="red" variant="small">
+                  {errors.password.message}
+                </Text>
+              )}
 
               <Button width="207px" height="48px" m="32px auto 0">
                 Entrar
@@ -97,12 +100,12 @@ export const Login: FC = () => {
           borderTopRightRadius="8px"
           borderBottomRightRadius="8px"
         >
-          <Text variant="medium" fontWeight="700" mb="24px">
+          <Text variant="medium" fontWeight="700" mb="4px">
             Olá, tech solver!
           </Text>
           <Text>Você está no Boilerplate da Nav9</Text>
         </Column>
       </Row>
     </Column>
-  )
-}
+  );
+};

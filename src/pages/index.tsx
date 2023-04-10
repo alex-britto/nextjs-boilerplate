@@ -1,1 +1,1 @@
-export { HomeScreen as default } from "@/screens";
+export { Login as default } from "@/screens";

@@ -1,16 +1,10 @@
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-
 import styled, { css } from "styled-components";
 
-interface DropdownProps {
-  triggerText: string;
-  options: [
-    {
-      label: string;
-      onClick: VoidFunction;
-    }
-  ];
-}
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+
+import { DropdownProps } from "./interface";
+
+import { theme } from "@/theme";
 
 export const Dropdown = ({ triggerText, options }: DropdownProps) => {
   const RenderMenuItems = () => {
@@ -40,22 +34,31 @@ export const Dropdown = ({ triggerText, options }: DropdownProps) => {
 };
 
 const StyledButton = styled.button`
-  font-size: 18px;
+  cursor: pointer;
+
   background-color: transparent;
 `;
 
 const MenuContent = styled(DropdownMenu.Content)`
   padding: 8px 16px;
+
   border-radius: 4px;
 
   ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
     border: 2px solid ${theme.colors.white.dark};
-  `}
+
+    background-color: ${theme.colors.white.default};
+  `};
 `;
 
 const MenuItem = styled(DropdownMenu.Item)`
   min-width: 150px;
+
+  font-size: 14px;
+
+  padding: 10px 0px;
+
+  border-bottom: 1px solid ${theme.colors.gray};
 `;
 
 const DropdownArrow = styled(DropdownMenu.Arrow)`

@@ -2,9 +2,9 @@ import { useRouter } from "next/router";
 
 import styled, { css } from "styled-components";
 
-import { Dropdown, Row } from "@/components";
+import { Dropdown, Row, Text } from "@/components";
 
-import { clearToken } from "@/shared/helpers/token";
+import { clearUser } from "@/shared/helpers/user";
 import { SpaceLayoutProps } from "@/shared/types/styledSystem";
 import { spaceLayoutUtilities } from "@/shared/utils/styledUtilities";
 
@@ -15,17 +15,17 @@ export const Navbar = ({}: NavbarProps) => {
 
   return (
     <StyledNavbar mb="16px">
-      <span>P.O.C</span>
+      <Text fontWeight="600">Boilerplate</Text>
       <Row>
-        <p>Olá Fulano de Tal</p>
         <Dropdown
-          triggerText="Menu"
+          triggerText="Nome do usuário"
           options={[
+            { label: "Perfil" },
             {
-              label: "Logout",
+              label: "Sair",
               onClick: () => {
-                clearToken();
                 router.push("/");
+                clearUser();
               },
             },
           ]}
@@ -38,12 +38,13 @@ export const Navbar = ({}: NavbarProps) => {
 const StyledNavbar = styled.nav<SpaceLayoutProps>`
   ${spaceLayoutUtilities}
 
+  width: 100%;
+
+  padding: 20px 80px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  padding: 20px;
-  font-size: 18px;
 
   span {
     font-size: 32px;
@@ -54,7 +55,8 @@ const StyledNavbar = styled.nav<SpaceLayoutProps>`
   }
 
   ${({ theme }) => css`
-    background-color: ${theme.colors.primary};
     border-bottom: 2px solid ${theme.colors.white.dark};
+
+    background-color: ${theme.colors.white};
   `}
 `;
