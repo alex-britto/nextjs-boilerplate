@@ -1,11 +1,21 @@
 import {
+  compose,
   border,
   boxShadow,
   color,
-  compose,
+  flexbox,
   layout,
   position,
   space,
-} from "styled-system";
+  typography,
+} from "styled-system"
 
-export const spaceLayoutUtilities = compose(space, layout);
+export const displayUtilities = compose(space, layout, flexbox, position)
+
+export const decorationUtilities = compose(
+  border,
+  boxShadow,
+  color,
+  layout,
+  typography
+)

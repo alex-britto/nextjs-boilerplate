@@ -1,6 +1,16 @@
-import styled, { css } from "styled-components";
+import { DisplayProps, DecorationProps } from "@/shared/types/styledSystem"
+import {
+  decorationUtilities,
+  displayUtilities,
+} from "@/shared/utils/styledUtilities"
+import styled, { css } from "styled-components"
 
-import { TextProps } from "./interfaces";
+import { IntrinsicElementsKeys } from "styled-components"
+
+interface TextProps extends DisplayProps, DecorationProps {
+  variant?: "bigger" | "big" | "medium" | "regular" | "small" | "tiny"
+  as?: IntrinsicElementsKeys
+}
 
 const TEXT_VARIANTS = {
   bigger: {
@@ -27,24 +37,15 @@ const TEXT_VARIANTS = {
     "font-size": "12px",
     "line-height": "16px",
   },
-};
+}
 
-export const Text = styled.p<TextProps>`
-  ${({
-    fontWeight = "400",
-    variant = "regular",
-    color,
-    textAlign = "start",
-    mb = "0px",
-  }) => css`
-    text-align: ${textAlign};
-
-    font-weight: ${fontWeight};
+export const Text = styled.p<TextProps>(
+  displayUtilities,
+  decorationUtilities,
+  ({ variant = "regular" }) => css`
+    font-weight: 400;
     font-size: ${TEXT_VARIANTS[variant]["font-size"]};
     line-height: ${TEXT_VARIANTS[variant]["line-height"]};
-
-    margin-bottom: ${mb};
-
-    color: ${color};
-  `}
-`;
+    margin-bottom: 0;
+  `
+)

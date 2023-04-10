@@ -1,10 +1,16 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components"
 
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 
-import { DropdownProps } from "./interface";
+import { theme } from "@/theme"
 
-import { theme } from "@/theme";
+interface DropdownProps {
+  triggerText: string
+  options: {
+    label: string
+    onClick?: VoidFunction
+  }[]
+}
 
 export const Dropdown = ({ triggerText, options }: DropdownProps) => {
   const RenderMenuItems = () => {
@@ -13,9 +19,9 @@ export const Dropdown = ({ triggerText, options }: DropdownProps) => {
         <MenuItem key={Math.random() + index} onClick={onClick}>
           {label}
         </MenuItem>
-      );
-    });
-  };
+      )
+    })
+  }
 
   return (
     <DropdownMenu.Root>
@@ -30,14 +36,14 @@ export const Dropdown = ({ triggerText, options }: DropdownProps) => {
         </MenuContent>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
-  );
-};
+  )
+}
 
 const StyledButton = styled.button`
   cursor: pointer;
 
   background-color: transparent;
-`;
+`
 
 const MenuContent = styled(DropdownMenu.Content)`
   padding: 8px 16px;
@@ -49,7 +55,7 @@ const MenuContent = styled(DropdownMenu.Content)`
 
     background-color: ${theme.colors.white.default};
   `};
-`;
+`
 
 const MenuItem = styled(DropdownMenu.Item)`
   min-width: 150px;
@@ -59,10 +65,10 @@ const MenuItem = styled(DropdownMenu.Item)`
   padding: 10px 0px;
 
   border-bottom: 1px solid ${theme.colors.gray};
-`;
+`
 
 const DropdownArrow = styled(DropdownMenu.Arrow)`
   ${({ theme }) => css`
     fill: ${theme.colors.white.dark};
   `}
-`;
+`

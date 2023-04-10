@@ -1,17 +1,7 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components"
 
-import { Row } from "@/components";
-import { ColumnProps } from "./interfaces";
+import { Row } from "@/components"
 
-export const Column = styled(Row)<ColumnProps>`
-  ${({
-    justifyContent = "flex-start",
-    textAlign = "start",
-    alignItems = "stretch",
-  }) => css`
-    flex-direction: column;
-    text-align: ${textAlign};
-    align-items: ${alignItems};
-    justify-content: ${justifyContent};
-  `}
-`;
+export const Column = styled(Row)`
+  flex-direction: column;
+`

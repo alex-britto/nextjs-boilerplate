@@ -1,12 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components"
 
-import { SpaceLayoutProps } from "@/shared/types/styledSystem";
-import { spaceLayoutUtilities } from "@/shared/utils/styledUtilities";
+import { DisplayProps, DecorationProps } from "@/shared/types/styledSystem"
+import {
+  displayUtilities,
+  decorationUtilities,
+} from "@/shared/utils/styledUtilities"
 
-interface RowProps extends SpaceLayoutProps {}
-
-export const Row = styled.div<RowProps>`
-  ${spaceLayoutUtilities}
-
-  display: flex;
-`;
+export const Row = styled.div<DisplayProps & DecorationProps>(
+  displayUtilities,
+  decorationUtilities,
+  css`
+    display: flex;
+  `
+)

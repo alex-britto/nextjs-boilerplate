@@ -1,5 +1,20 @@
-import { SpaceProps, LayoutProps, FlexProps } from "styled-system";
+import {
+  BorderProps,
+  BoxShadowProps,
+  ColorProps,
+  FlexboxProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+  TypographyProps,
+} from "styled-system"
 
-export type SpaceLayoutProps = SpaceProps & LayoutProps;
+export type DisplayProps = SpaceProps &
+  LayoutProps &
+  FlexboxProps &
+  PositionProps
 
-export type SpaceLayoutFlexProps = SpaceLayoutProps & FlexProps;
+export type DecorationProps = BorderProps &
+  ColorProps &
+  BoxShadowProps &
+  TypographyProps
