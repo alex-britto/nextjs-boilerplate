@@ -23,12 +23,6 @@ const UserProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const userSaved = getUser();
 
   useEffect(() => {
-    if (!user) {
-      if (window.location.pathname !== "/login")
-        window.location.pathname = "/login";
-      return;
-    }
-
     setUser(userSaved);
   }, []);
 
