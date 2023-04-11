@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.0.1",
@@ -29,6 +30,26 @@
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
     "@types/styled-system": "^5.1.16",
-    "cypress": "^12.9.0"
+    "commitlint": "^17.5.1",
+    "cypress": "^12.9.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
