@@ -1,33 +1,33 @@
-import { FC } from "react"
+import { FC } from "react";
 
-import Head from "next/head"
-import { useRouter } from "next/router"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button, Column, Input, Row, Text } from "@/components"
+import { Button, Column, Input, Row, Text } from "@/components";
 
-import { UserProps } from "@/shared/interfaces/user"
-import { credentailsSchema } from "@/shared/schemas/credentials"
+import { UserProps } from "@/shared/interfaces/user";
+import { credentialsSchema } from "@/shared/schemas/credentials";
 
-import { theme } from "@/theme"
-import { setUserLS } from "@/shared/helpers/user"
+import { theme } from "@/theme";
+import { setUserLS } from "@/shared/helpers/user";
 
 export const Login: FC = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<UserProps>({
-    resolver: zodResolver(credentailsSchema),
-  })
+    resolver: zodResolver(credentialsSchema),
+  });
 
   const handleLogin = (data: UserProps) => {
-    setUserLS(data)
-    router.push("/dashboard")
-  }
+    setUserLS(data);
+    router.push("/dashboard");
+  };
 
   return (
     <>
@@ -113,5 +113,5 @@ export const Login: FC = () => {
         </Row>
       </Column>
     </>
-  )
-}
+  );
+};
