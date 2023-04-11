@@ -1,33 +1,39 @@
-import "styled-components";
+import "styled-components"
 
-import theme from "./theme";
+import theme from "./theme"
 
-type Theme = typeof theme;
+type Theme = typeof theme
+
+type ThemeColors = {
+  primary: string
+  secondary: string
+  dark: string
+  black: string
+  gray: string
+  white: {
+    default: string
+    light: string
+    medium: string
+    dark: string
+  }
+  blue: {
+    light: string
+    medium: string
+    dark: string
+  }
+}
+
+type ThemeSpace = {
+  s1: string
+  s2: string
+  s3: string
+  s4: string
+  s5: string
+}
 
 declare module "styled-components" {
   export interface DefaultTheme extends Theme {
-    colors: {
-      primary: string;
-      secondary: string;
-      dark: string;
-      black: string;
-      gray: string;
-      white: {
-        default: string;
-        light: string;
-        medium: string;
-        dark: string;
-      };
-      blue: {
-        light: string;
-        medium: string;
-        dark: string;
-      };
-    };
-    spaces: {
-      s0: string;
-      s1: string;
-      s2: string;
-    };
+    colors: ThemeColors
+    space: ThemeSpace
   }
 }

@@ -6,7 +6,7 @@ import { displayUtilities } from "@/shared/utils/styledUtilities"
 export const Button = styled.button<DisplayProps>(
   displayUtilities,
   ({ theme }) => css`
-    padding: 0 ${theme.spaces.s2};
+    padding: 0 ${theme.space.s3};
 
     color: ${theme.colors.white.default};
     background-color: ${theme.colors.primary};
