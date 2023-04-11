@@ -55,6 +55,6 @@ const StyledNavbar = styled.nav<DisplayProps>(
 
     border-bottom: 2px solid ${theme.colors.white.dark};
 
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.white.default};
   `
 )

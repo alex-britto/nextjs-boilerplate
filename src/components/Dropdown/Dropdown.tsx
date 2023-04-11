@@ -38,19 +38,24 @@ export const Dropdown = ({ triggerText, options }: DropdownProps) => {
 }
 
 const StyledButton = styled.button`
-  cursor: pointer;
+  ${({ theme }) => css`
+    cursor: pointer;
 
-  background-color: transparent;
+    padding: 8px;
+
+    background-color: transparent;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: ${theme.colors.white.medium};
+    }
+  `};
 `
 
 const MenuContent = styled(DropdownMenu.Content)`
-  padding: 8px 16px;
-
-  border-radius: 4px;
-
   ${({ theme }) => css`
+    border-radius: 4px;
     border: 2px solid ${theme.colors.white.dark};
-
     background-color: ${theme.colors.white.default};
   `};
 `
@@ -58,12 +63,17 @@ const MenuContent = styled(DropdownMenu.Content)`
 const MenuItem = styled(DropdownMenu.Item)`
   ${({ theme }) => css`
     min-width: 150px;
+    padding: 10px 8px;
 
     font-size: 14px;
 
-    padding: 10px 0px;
+    cursor: pointer;
 
     border-bottom: 1px solid ${theme.colors.gray};
+
+    &:hover {
+      background-color: ${theme.colors.white.medium};
+    }
   `}
 `
 
