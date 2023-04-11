@@ -45,7 +45,7 @@ export const Login: FC = () => {
         >
           <Column width="544px" justifyContent="center">
             <form onSubmit={handleSubmit(handleLogin)}>
-              <Column width="320px" m="0 auto">
+              <Column width="320px" m="0 auto" color="black">
                 <Text
                   mb="s5"
                   fontWeight="700"
