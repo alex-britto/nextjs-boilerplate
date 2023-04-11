@@ -10,7 +10,7 @@ import { Button, Column, Input, Row, Text } from "@/components";
 import { UserProps } from "@/shared/interfaces/user";
 import { credentialsSchema } from "@/shared/schemas/credentials";
 
-import { setUserLS } from "@/shared/helpers/user"
+import { setUserLS } from "@/shared/helpers/user";
 
 export const Login: FC = () => {
   const router = useRouter();
@@ -52,7 +52,7 @@ export const Login: FC = () => {
                   variant="medium"
                   textAlign="center"
                 >
-                  Entrar
+                  Entraraa
                 </Text>
 
                 <Text variant="small" fontWeight="600">
