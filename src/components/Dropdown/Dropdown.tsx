@@ -2,8 +2,6 @@ import styled, { css } from "styled-components"
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 
-import { theme } from "@/theme"
-
 interface DropdownProps {
   triggerText: string
   options: {
@@ -58,13 +56,15 @@ const MenuContent = styled(DropdownMenu.Content)`
 `
 
 const MenuItem = styled(DropdownMenu.Item)`
-  min-width: 150px;
+  ${({ theme }) => css`
+    min-width: 150px;
 
-  font-size: 14px;
+    font-size: 14px;
 
-  padding: 10px 0px;
+    padding: 10px 0px;
 
-  border-bottom: 1px solid ${theme.colors.gray};
+    border-bottom: 1px solid ${theme.colors.gray};
+  `}
 `
 
 const DropdownArrow = styled(DropdownMenu.Arrow)`
