@@ -14,13 +14,12 @@ export const Navbar = ({}: NavbarProps) => {
   const router = useRouter()
 
   return (
-    <StyledNavbar mb="16px">
+    <StyledNavbar mb="s5">
       <Text fontWeight="600">Boilerplate</Text>
       <Row>
         <Dropdown
           triggerText="Nome do usuário"
           options={[
-            { label: "Perfil" },
             {
               label: "Sair",
               onClick: () => {

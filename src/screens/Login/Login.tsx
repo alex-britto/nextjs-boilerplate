@@ -40,7 +40,7 @@ export const Login: FC = () => {
         justifyContent="center"
       >
         <Row
-          m="0 auto"
+          m="s0 auto"
           width="880px"
           height="504px"
           borderRadius="8px"
