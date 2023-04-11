@@ -46,6 +46,5 @@ export const Text = styled.p<TextProps>(
     font-weight: 400;
     font-size: ${TEXT_VARIANTS[variant]["font-size"]};
     line-height: ${TEXT_VARIANTS[variant]["line-height"]};
-    margin-bottom: 0;
   `
 )
