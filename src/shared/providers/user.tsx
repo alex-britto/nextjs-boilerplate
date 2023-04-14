@@ -1,38 +1,38 @@
 import {
-  createContext,
-  FC,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+	createContext,
+	FC,
+	ReactNode,
+	useContext,
+	useEffect,
+	useState,
+} from 'react'
 
-import { getUser } from "@/shared/helpers/user";
-import { UserContextData, UserProps } from "@/shared/interfaces/user";
+import { getUser } from '@/shared/helpers/user'
+import { UserContextData, UserProps } from '@/shared/interfaces/user'
 
-const UserContext = createContext<UserContextData>({} as UserContextData);
+const UserContext = createContext<UserContextData>({} as UserContextData)
 
 const UserProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<UserProps>({
-    email: "",
-    password: "",
-    name: "",
-    typeUser: "",
-  });
+	const [user, setUser] = useState<UserProps>({
+		email: '',
+		password: '',
+		name: '',
+		typeUser: '',
+	})
 
-  const userSaved = getUser();
+	const userSaved = getUser()
 
-  useEffect(() => {
-    setUser(userSaved);
-  }, []);
+	useEffect(() => {
+		setUser(userSaved)
+	}, [])
 
-  return (
-    <UserContext.Provider value={{ user, setUser }}>
-      {children}
-    </UserContext.Provider>
-  );
-};
+	return (
+		<UserContext.Provider value={{ user, setUser }}>
+			{children}
+		</UserContext.Provider>
+	)
+}
 
-const useUser = () => useContext(UserContext);
+const useUser = () => useContext(UserContext)
 
-export { UserProvider, useUser };
+export { UserProvider, useUser }
