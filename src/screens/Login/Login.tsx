@@ -1,19 +1,19 @@
-import { FC } from "react"
+import { FC } from "react";
 
-import Head from "next/head"
-import { useRouter } from "next/router"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import { Button, Column, Input, Row, Text } from "@/components"
+import { Button, Column, Input, Row, Text } from "@/components";
 
-import { UserProps } from "@/shared/interfaces/user"
-import { credentialsSchema } from "@/shared/schemas/credentials"
+import { UserProps } from "@/shared/interfaces/user";
+import { credentialsSchema } from "@/shared/schemas/credentials";
 
-import { setUserLS } from "@/shared/helpers/user"
+import { setUserLS } from "@/shared/helpers/user";
 
 export const Login: FC = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const {
     register,
@@ -21,17 +21,17 @@ export const Login: FC = () => {
     formState: { errors },
   } = useForm<UserProps>({
     resolver: zodResolver(credentialsSchema),
-  })
+  });
 
   const handleLogin = (data: UserProps) => {
-    setUserLS(data)
-    router.push("/dashboard")
-  }
+    setUserLS(data);
+    router.push("/dashboard");
+  };
 
   return (
     <>
       <Head>
-        <title>Dashboard</title>
+        <title>Login</title>
       </Head>
       <Column height="100vh" backgroundColor="gray" justifyContent="center">
         <Row
@@ -61,12 +61,18 @@ export const Login: FC = () => {
                 <Input
                   placeholder="e-mail"
                   height="48px"
+                  data-testid="email"
                   mt="s2"
                   {...(!errors.email && { mb: "24px" })}
                   {...register("email")}
                 />
                 {errors.email && (
-                  <Text color="red" variant="small" mb="24px">
+                  <Text
+                    color="red"
+                    variant="small"
+                    mb="24px"
+                    data-testid="email-error"
+                  >
                     {errors.email.message}
                   </Text>
                 )}
@@ -76,12 +82,17 @@ export const Login: FC = () => {
                 </Text>
                 <Input
                   placeholder="senha"
+                  data-testid="password"
                   height="48px"
                   mt="s2"
                   {...register("password")}
                 />
                 {errors.password && (
-                  <Text color="red" variant="small">
+                  <Text
+                    color="red"
+                    variant="small"
+                    data-testid="password-error"
+                  >
                     {errors.password.message}
                   </Text>
                 )}
@@ -109,5 +120,5 @@ export const Login: FC = () => {
         </Row>
       </Column>
     </>
-  )
-}
+  );
+};

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "test": "playwright test"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.0.1",
@@ -19,6 +20,7 @@
     "eslint-config-next": "13.2.4",
     "eslint-plugin-cypress": "^2.13.2",
     "next": "13.2.4",
+    "playwright": "^1.32.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
@@ -28,6 +30,7 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@playwright/test": "^1.32.3",
     "@types/styled-components": "^5.1.26",
     "@types/styled-system": "^5.1.16",
     "commitlint": "^17.5.1",
