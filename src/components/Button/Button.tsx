@@ -2,9 +2,13 @@ import styled, { css } from "styled-components"
 
 import { DisplayProps } from "@/shared/types/styledSystem"
 import { displayUtilities } from "@/shared/utils/styledUtilities"
+import { flexbox, layout, position, space } from "styled-system"
 
 export const Button = styled.button<DisplayProps>(
-  displayUtilities,
+  space,
+  layout,
+  flexbox,
+  position,
   ({ theme }) => css`
     padding: 0 ${theme.space.s3};
 
