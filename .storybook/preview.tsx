@@ -13,6 +13,7 @@ const preview: Preview = {
         date: /Date$/,
       },
       exclude: ["theme", "ref", "forwardedAs"],
+      sort: "alpha",
     },
   },
 }
