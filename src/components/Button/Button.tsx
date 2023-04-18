@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components"
+import styled, { css } from "styled-components";
 
-import { DisplayProps } from "@/shared/types/styledSystem"
-import { displayUtilities } from "../../shared/utils/styledUtilities"
+import { DisplayProps } from "@/shared/types/styledSystem";
+import { displayUtilities } from "@/shared/utils/styledUtilities";
 
 /**
  * Storybook button description
@@ -20,4 +20,4 @@ export const Button = styled.button<DisplayProps>(
     border-radius: 4px;
   `,
   displayUtilities
-)
+);
