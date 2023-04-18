@@ -5,37 +5,16 @@ import { Button } from "./Button"
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: "My Components/Button",
+  title: "Button",
   component: Button,
-  tags: ["autodocs"],
   args: {
     children: "My Button",
     onClick: action("clicou!"),
-  },
-  argTypes: {
-    margin: {
-      control: { type: "number", min: 0 },
-      table: {
-        category: "Styled System",
-      },
-    },
-    onClick: {
-      description: "Required click handler",
-      table: { type: { summary: "() => void" } },
-    },
-    children: {
-      description: "Button content",
-      table: { type: { summary: "ReactNode" } },
-    },
-  },
-  parameters: {
-    controls: {},
   },
 }
 
 export const Default = {}
 
-/** Este é um botão regular */
 export const Regular = {
   args: {
     width: "207px",
@@ -58,6 +37,8 @@ export const StyledSystemProps = {
       },
     },
     py: {
+      control: "select",
+      options: ["s1", "s2", "s3", "s3", "s4", "s5"],
       table: {
         category: "Styled System",
       },
@@ -76,8 +57,8 @@ export const ButtonWithHooks = {
     }
 
     return (
-      <Button onClick={handleOnChange} {...args}>
-        My Button: {btnNumber}
+      <Button {...args} onClick={handleOnChange}>
+        My New Button: {btnNumber}
       </Button>
     )
   },

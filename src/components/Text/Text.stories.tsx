@@ -2,9 +2,8 @@ import { Text } from "./Text"
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: "My Components/Text",
+  title: "Text",
   component: Text,
-  tags: ["autodocs"],
   args: {
     children: "My text",
   },

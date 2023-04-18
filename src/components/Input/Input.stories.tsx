@@ -2,10 +2,8 @@ import { Input } from "./Input"
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: "My Components/Input",
+  title: "Input",
   component: Input,
-  tags: ["autodocs"],
-  args: {},
   argTypes: {
     placeholder: {
       control: "text",
@@ -21,7 +19,6 @@ export default {
 
 export const Default = {}
 
-/** Este é um input regular */
 export const Regular = {
   args: {
     placeholder: "My input",
