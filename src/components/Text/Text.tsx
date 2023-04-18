@@ -2,7 +2,7 @@ import { DisplayProps, DecorationProps } from "@/shared/types/styledSystem"
 import {
   decorationUtilities,
   displayUtilities,
-} from "../../shared/utils/styledUtilities"
+} from "@/shared/utils/styledUtilities"
 import styled, { css } from "styled-components"
 
 import { IntrinsicElementsKeys } from "styled-components"

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 
 import { DisplayProps } from "@/shared/types/styledSystem"
-import { displayUtilities } from "../../shared/utils/styledUtilities"
+import { displayUtilities } from "@/shared/utils/styledUtilities"
 
 /**
  * Storybook input description
