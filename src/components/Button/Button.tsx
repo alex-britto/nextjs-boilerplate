@@ -1,11 +1,10 @@
 import styled, { css } from "styled-components"
 
 import { DisplayProps } from "@/shared/types/styledSystem"
-import { displayUtilities } from "@/shared/utils/styledUtilities"
-import { flexbox, layout, position, space } from "styled-system"
+import { displayUtilities } from "../../shared/utils/styledUtilities"
 
 /**
- * Storybook component description
+ * Storybook button description
  */
 
 export const Button = styled.button<DisplayProps>(
@@ -20,8 +19,5 @@ export const Button = styled.button<DisplayProps>(
 
     border-radius: 4px;
   `,
-  space,
-  layout,
-  flexbox,
-  position
+  displayUtilities
 )
