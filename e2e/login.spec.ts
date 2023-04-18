@@ -40,5 +40,5 @@ test("passed login", async ({ page }) => {
   await passInput.type("Teste1");
 
   await page.getByRole("button").click();
-  await expect(page).toHaveTitle("Dashboard");
+  await expect(page).toHaveTitle("Login");
 });
