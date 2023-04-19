@@ -1,9 +1,9 @@
-import { Input } from "./Input"
+import { TextField } from "./TextField"
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: "Input",
-  component: Input,
+  title: "TextField",
+  component: TextField,
   argTypes: {
     placeholder: {
       control: "text",

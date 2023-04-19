@@ -1,9 +1,9 @@
-import { Text } from "./Text"
+import { Typography } from "./Typography"
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  title: "Text",
-  component: Text,
+  title: "Typography",
+  component: Typography,
   args: {
     children: "My text",
   },

@@ -1,13 +1,12 @@
+import styled, { css, IntrinsicElementsKeys } from "styled-components"
+
 import { DisplayProps, DecorationProps } from "@/shared/types/styledSystem"
 import {
   decorationUtilities,
   displayUtilities,
 } from "@/shared/utils/styledUtilities"
-import styled, { css } from "styled-components"
 
-import { IntrinsicElementsKeys } from "styled-components"
-
-interface TextProps extends DisplayProps, DecorationProps {
+interface TypographyProps extends DisplayProps, DecorationProps {
   variant?: keyof typeof TEXT_VARIANTS
   as?: IntrinsicElementsKeys
 }
@@ -39,11 +38,7 @@ const TEXT_VARIANTS = {
   },
 }
 
-/**
- * Storybook text description
- */
-
-export const Text = styled.p<TextProps>(
+export const Typography = styled.p<TypographyProps>(
   ({ variant = "regular" }) => css`
     font-weight: 400;
     font-size: ${TEXT_VARIANTS[variant]["font-size"]};

@@ -2,11 +2,11 @@ import { useRouter } from "next/router"
 
 import styled, { css } from "styled-components"
 
-import { Dropdown, Row, Text } from "@/components"
-
 import { clearUser } from "@/shared/helpers/user"
 import { DisplayProps } from "@/shared/types/styledSystem"
 import { displayUtilities } from "@/shared/utils/styledUtilities"
+
+import { Dropdown, Row, Typography } from "@/components"
 
 interface NavbarProps {}
 
@@ -15,7 +15,7 @@ export const Navbar = ({}: NavbarProps) => {
 
   return (
     <StyledNavbar mb="s5">
-      <Text fontWeight="600">Boilerplate</Text>
+      <Typography fontWeight="600">Boilerplate</Typography>
       <Row>
         <Dropdown
           triggerText="Nome do usuário"

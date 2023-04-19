@@ -5,7 +5,7 @@ import { useRouter } from "next/router"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-import { Button, Column, Input, Row, Text } from "@/components"
+import { Button, Column, TextField, Row, Typography } from "@/components"
 
 import { UserProps } from "@/shared/interfaces/user"
 import { credentialsSchema } from "@/shared/schemas/credentials"
@@ -46,19 +46,19 @@ export const Login: FC = () => {
           <Column width="544px" justifyContent="center">
             <form onSubmit={handleSubmit(handleLogin)}>
               <Column width="320px" m="0 auto" color="black">
-                <Text
+                <Typography
                   mb="s5"
                   fontWeight="700"
                   variant="medium"
                   textAlign="center"
                 >
                   Entrar
-                </Text>
+                </Typography>
 
-                <Text variant="small" fontWeight="600">
+                <Typography variant="small" fontWeight="600">
                   E-mail*
-                </Text>
-                <Input
+                </Typography>
+                <TextField
                   placeholder="e-mail"
                   height="48px"
                   mt="s2"
@@ -66,24 +66,24 @@ export const Login: FC = () => {
                   {...register("email")}
                 />
                 {errors.email && (
-                  <Text color="red" variant="small" mb="24px">
+                  <Typography color="red" variant="small" mb="24px">
                     {errors.email.message}
-                  </Text>
+                  </Typography>
                 )}
 
-                <Text variant="small" fontWeight="600">
+                <Typography variant="small" fontWeight="600">
                   Senha*
-                </Text>
-                <Input
+                </Typography>
+                <TextField
                   placeholder="senha"
                   height="48px"
                   mt="s2"
                   {...register("password")}
                 />
                 {errors.password && (
-                  <Text color="red" variant="small">
+                  <Typography color="red" variant="small">
                     {errors.password.message}
-                  </Text>
+                  </Typography>
                 )}
 
                 <Button width="207px" height="48px" mx="auto" mt="s5">
@@ -101,10 +101,10 @@ export const Login: FC = () => {
             borderTopRightRadius="8px"
             borderBottomRightRadius="8px"
           >
-            <Text variant="medium" fontWeight="700" mb="s1">
+            <Typography variant="medium" fontWeight="700" mb="s1">
               Olá, tech solver!
-            </Text>
-            <Text>Você está no Boilerplate da Nav9</Text>
+            </Typography>
+            <Typography>Você está no Boilerplate da Nav9</Typography>
           </Column>
         </Row>
       </Column>
