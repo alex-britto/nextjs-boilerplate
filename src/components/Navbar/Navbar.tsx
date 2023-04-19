@@ -1,3 +1,4 @@
+import { HTMLAttributes } from "react"
 import { useRouter } from "next/router"
 
 import styled, { css } from "styled-components"
@@ -8,28 +9,26 @@ import { displayUtilities } from "@/shared/utils/styledUtilities"
 
 import { Dropdown, Row, Typography } from "@/components"
 
-interface NavbarProps {}
+interface NavbarProps extends DisplayProps, HTMLAttributes<HTMLElement> {}
 
-export const Navbar = ({}: NavbarProps) => {
+export const Navbar = ({ ...rest }: NavbarProps) => {
   const router = useRouter()
 
   return (
-    <StyledNavbar mb="s5">
+    <StyledNavbar mb="s5" {...rest}>
       <Typography fontWeight="600">Boilerplate</Typography>
-      <Row>
-        <Dropdown
-          triggerText="Nome do usuário"
-          options={[
-            {
-              label: "Sair",
-              onClick: () => {
-                router.push("/")
-                clearUser()
-              },
+      <Dropdown
+        triggerText="Nome do usuário"
+        options={[
+          {
+            label: "Sair",
+            onClick: () => {
+              router.push("/")
+              clearUser()
             },
-          ]}
-        />
-      </Row>
+          },
+        ]}
+      />
     </StyledNavbar>
   )
 }

@@ -1,8 +1,12 @@
+import { HTMLAttributes } from "react"
 import styled, { css } from "styled-components"
 
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
+import { DisplayProps } from "@/shared/types/styledSystem"
 
-interface DropdownProps {
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
+import { Row } from "@/components"
+
+interface DropdownProps extends DisplayProps, HTMLAttributes<HTMLElement> {
   triggerText: string
   options: {
     label: string
@@ -10,7 +14,7 @@ interface DropdownProps {
   }[]
 }
 
-export const Dropdown = ({ triggerText, options }: DropdownProps) => {
+export const Dropdown = ({ triggerText, options, ...rest }: DropdownProps) => {
   const RenderMenuItems = () => {
     return options.map(({ label, onClick }, index) => {
       return (
@@ -22,18 +26,20 @@ export const Dropdown = ({ triggerText, options }: DropdownProps) => {
   }
 
   return (
-    <DropdownMenu.Root>
-      <DropdownMenu.Trigger asChild>
-        <StyledButton>{triggerText}</StyledButton>
-      </DropdownMenu.Trigger>
+    <Row {...rest}>
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger asChild>
+          <StyledButton>{triggerText}</StyledButton>
+        </DropdownMenu.Trigger>
 
-      <DropdownMenu.Portal>
-        <MenuContent align="end" sideOffset={5}>
-          {RenderMenuItems()}
-          <DropdownArrow />
-        </MenuContent>
-      </DropdownMenu.Portal>
-    </DropdownMenu.Root>
+        <DropdownMenu.Portal>
+          <MenuContent align="end" sideOffset={5}>
+            {RenderMenuItems()}
+            <DropdownArrow />
+          </MenuContent>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
+    </Row>
   )
 }
 
