@@ -35,7 +35,6 @@ export const Navbar = ({}: NavbarProps) => {
 }
 
 const StyledNavbar = styled.nav<DisplayProps>(
-  displayUtilities,
   ({ theme }) => css`
     width: 100%;
 
@@ -56,5 +55,6 @@ const StyledNavbar = styled.nav<DisplayProps>(
     border-bottom: 2px solid ${theme.colors.white.dark};
 
     background-color: ${theme.colors.white.default};
-  `
+  `,
+  displayUtilities
 )

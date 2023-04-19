@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.0.1",
@@ -28,13 +30,21 @@
     "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "7.0.5",
+    "@storybook/addon-interactions": "7.0.5",
+    "@storybook/addon-links": "7.0.5",
+    "@storybook/blocks": "7.0.5",
+    "@storybook/nextjs": "7.0.5",
+    "@storybook/react": "7.0.5",
+    "@storybook/testing-library": "0.0.14-next.2",
     "@types/styled-components": "^5.1.26",
     "@types/styled-system": "^5.1.16",
     "commitlint": "^17.5.1",
     "cypress": "^12.9.0",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.1"
+    "lint-staged": "^13.2.1",
+    "storybook": "7.0.5"
   },
   "husky": {
     "hooks": {
