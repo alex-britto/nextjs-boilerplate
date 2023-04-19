@@ -4,7 +4,6 @@ import { DisplayProps } from "@/shared/types/styledSystem"
 import { displayUtilities } from "@/shared/utils/styledUtilities"
 
 export const Button = styled.button<DisplayProps>(
-  displayUtilities,
   ({ theme }) => css`
     padding: 0 ${theme.space.s3};
 
@@ -15,5 +14,6 @@ export const Button = styled.button<DisplayProps>(
     font-weight: 600;
 
     border-radius: 4px;
-  `
+  `,
+  displayUtilities
 )
