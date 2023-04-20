@@ -1,28 +1,28 @@
-import { useEffect } from "react"
+import { useEffect } from 'react'
 
-import { useRouter } from "next/router"
-import Head from "next/head"
+import { useRouter } from 'next/router'
+import Head from 'next/head'
 
-import { Typography } from "@/components"
+import { Typography } from '@/components'
 
-import { LoggedLayout } from "@/layout/logged"
-import { getUser } from "@/shared/helpers/user"
+import { LoggedLayout } from '@/layout/logged'
+import { getUser } from '@/shared/helpers/user'
 
 export const Dashboard = () => {
-  const router = useRouter()
+	const router = useRouter()
 
-  useEffect(() => {
-    !getUser() && router.push("/login")
-  }, [])
+	useEffect(() => {
+		!getUser() && router.push('/login')
+	}, [])
 
-  return (
-    <>
-      <Head>
-        <title>Dashboard</title>
-      </Head>
-      <LoggedLayout>
-        <Typography>Você está no dashboard</Typography>
-      </LoggedLayout>
-    </>
-  )
+	return (
+		<>
+			<Head>
+				<title>Dashboard</title>
+			</Head>
+			<LoggedLayout>
+				<Typography>Você está no dashboard</Typography>
+			</LoggedLayout>
+		</>
+	)
 }

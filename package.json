@@ -61,6 +61,10 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
+    },
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.7"
   }
 }
