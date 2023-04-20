@@ -52,13 +52,14 @@ export const Login: FC = () => {
 									variant="medium"
 									textAlign="center"
 								>
-									Entrar
+									Login
 								</Typography>
 
 								<Typography variant="small" fontWeight="600">
 									E-mail*
 								</Typography>
 								<TextField
+									data-testid="email"
 									placeholder="e-mail"
 									height="48px"
 									mt="s2"
@@ -66,7 +67,12 @@ export const Login: FC = () => {
 									{...register('email')}
 								/>
 								{errors.email && (
-									<Typography color="red" variant="small" mb="24px">
+									<Typography
+										data-testid="email-error"
+										variant="small"
+										color="red"
+										mb="24px"
+									>
 										{errors.email.message}
 									</Typography>
 								)}
@@ -75,18 +81,29 @@ export const Login: FC = () => {
 									Senha*
 								</Typography>
 								<TextField
+									data-testid="password"
 									placeholder="senha"
 									height="48px"
 									mt="s2"
 									{...register('password')}
 								/>
 								{errors.password && (
-									<Typography color="red" variant="small">
+									<Typography
+										data-testid="password-error"
+										variant="small"
+										color="red"
+									>
 										{errors.password.message}
 									</Typography>
 								)}
 
-								<Button width="207px" height="48px" mx="auto" mt="s5">
+								<Button
+									data-testid="login-btn"
+									width="207px"
+									height="48px"
+									mx="auto"
+									mt="s5"
+								>
 									Entrar
 								</Button>
 							</Column>
