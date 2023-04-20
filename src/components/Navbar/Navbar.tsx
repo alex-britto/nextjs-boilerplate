@@ -7,7 +7,7 @@ import { clearUser } from '@/shared/helpers/user'
 import { DisplayProps } from '@/shared/types/styledSystem'
 import { displayUtilities } from '@/shared/utils/styledUtilities'
 
-import { Dropdown, Row, Typography } from '@/components'
+import { Dropdown, Typography } from '@/components'
 
 interface NavbarProps extends DisplayProps, HTMLAttributes<HTMLElement> {}
 
@@ -15,10 +15,10 @@ export const Navbar = ({ ...rest }: NavbarProps) => {
 	const router = useRouter()
 
 	return (
-		<StyledNavbar mb="s5" {...rest}>
-			<Typography fontWeight="600">Boilerplate</Typography>
+		<StyledNavbar mb='s5' {...rest}>
+			<Typography fontWeight='600'>Boilerplate</Typography>
 			<Dropdown
-				triggerText="Nome do usuário"
+				triggerText='Nome do usuário'
 				options={[
 					{
 						label: 'Sair',

@@ -6,7 +6,7 @@ export const LoggedLayout = ({ children }: { children: ReactNode }) => {
 	return (
 		<>
 			<Navbar />
-			<Column width="80%" mx="auto">
+			<Column width='80%' mx='auto'>
 				{children}
 			</Column>
 		</>

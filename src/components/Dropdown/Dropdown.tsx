@@ -33,7 +33,7 @@ export const Dropdown = ({ triggerText, options, ...rest }: DropdownProps) => {
 				</DropdownMenu.Trigger>
 
 				<DropdownMenu.Portal>
-					<MenuContent align="end" sideOffset={5}>
+					<MenuContent align='end' sideOffset={5}>
 						{RenderMenuItems()}
 						<DropdownArrow />
 					</MenuContent>
