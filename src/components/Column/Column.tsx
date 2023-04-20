@@ -1,7 +1,7 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
-import { Row } from "@/components"
+import { Row } from '@/components'
 
 export const Column = styled(Row)`
-  flex-direction: column;
+	flex-direction: column;
 `
