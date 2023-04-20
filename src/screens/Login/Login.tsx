@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Button, Column, TextField, Row, Typography } from "@/components"
 
 import { UserProps } from "@/shared/interfaces/user"
-import { credentialsSchema } from "@/shared/schemas/credentials"
+import { credentialsSchema } from "@/shared/schemas/loginCredentials"
 
 import { setUserLS } from "@/shared/helpers/user"
 
