@@ -1,8 +1,8 @@
-import React from "react"
-import type { Preview } from "@storybook/react"
-import { ThemeProvider } from "styled-components"
+import React from "react";
+import type { Preview } from "@storybook/react";
+import { ThemeProvider } from "styled-components";
 
-import { theme } from "../src/theme"
+import { theme } from "../src/theme";
 
 const preview: Preview = {
   parameters: {
@@ -16,14 +16,16 @@ const preview: Preview = {
       sort: "alpha",
     },
   },
-}
+};
 
 export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
-      <Story />
+      <div id="component-container" style={{ width: "fit-content" }}>
+        <Story />
+      </div>
     </ThemeProvider>
   ),
-]
+];
 
-export default preview
+export default preview;
