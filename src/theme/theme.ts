@@ -28,6 +28,6 @@ const space = {
 }
 
 export const theme: DefaultTheme = {
-  colors: colors,
-  space: space,
+  colors,
+  space,
 }

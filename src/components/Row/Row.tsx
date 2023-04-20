@@ -7,9 +7,9 @@ import {
 } from "@/shared/utils/styledUtilities"
 
 export const Row = styled.div<DisplayProps & DecorationProps>(
-  displayUtilities,
-  decorationUtilities,
-  css`
+  () => css`
     display: flex;
-  `
+  `,
+  decorationUtilities,
+  displayUtilities
 )

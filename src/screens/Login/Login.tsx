@@ -1,19 +1,19 @@
-import { FC } from "react";
+import { FC } from "react"
 
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import Head from "next/head"
+import { useRouter } from "next/router"
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
 
-import { Button, Column, Input, Row, Text } from "@/components";
+import { Button, Column, TextField, Row, Typography } from "@/components"
 
-import { UserProps } from "@/shared/interfaces/user";
-import { credentialsSchema } from "@/shared/schemas/credentials";
+import { UserProps } from "@/shared/interfaces/user"
+import { credentialsSchema } from "@/shared/schemas/loginCredentials"
 
-import { setUserLS } from "@/shared/helpers/user";
+import { setUserLS } from "@/shared/helpers/user"
 
 export const Login: FC = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   const {
     register,
@@ -21,12 +21,12 @@ export const Login: FC = () => {
     formState: { errors },
   } = useForm<UserProps>({
     resolver: zodResolver(credentialsSchema),
-  });
+  })
 
   const handleLogin = (data: UserProps) => {
-    setUserLS(data);
-    router.push("/dashboard");
-  };
+    setUserLS(data)
+    router.push("/dashboard")
+  }
 
   return (
     <>
@@ -46,19 +46,19 @@ export const Login: FC = () => {
           <Column width="544px" justifyContent="center">
             <form onSubmit={handleSubmit(handleLogin)}>
               <Column width="320px" m="0 auto" color="black">
-                <Text
+                <Typography
                   mb="s5"
                   fontWeight="700"
                   variant="medium"
                   textAlign="center"
                 >
                   Entrar
-                </Text>
+                </Typography>
 
-                <Text variant="small" fontWeight="600">
+                <Typography variant="small" fontWeight="600">
                   E-mail*
-                </Text>
-                <Input
+                </Typography>
+                <TextField
                   placeholder="e-mail"
                   height="48px"
                   data-testid="email"
@@ -67,20 +67,15 @@ export const Login: FC = () => {
                   {...register("email")}
                 />
                 {errors.email && (
-                  <Text
-                    color="red"
-                    variant="small"
-                    mb="24px"
-                    data-testid="email-error"
-                  >
+                  <Typography color="red" variant="small" mb="24px">
                     {errors.email.message}
-                  </Text>
+                  </Typography>
                 )}
 
-                <Text variant="small" fontWeight="600">
+                <Typography variant="small" fontWeight="600">
                   Senha*
-                </Text>
-                <Input
+                </Typography>
+                <TextField
                   placeholder="senha"
                   data-testid="password"
                   height="48px"
@@ -88,13 +83,9 @@ export const Login: FC = () => {
                   {...register("password")}
                 />
                 {errors.password && (
-                  <Text
-                    color="red"
-                    variant="small"
-                    data-testid="password-error"
-                  >
+                  <Typography color="red" variant="small">
                     {errors.password.message}
-                  </Text>
+                  </Typography>
                 )}
 
                 <Button width="207px" height="48px" mx="auto" mt="s5">
@@ -112,13 +103,13 @@ export const Login: FC = () => {
             borderTopRightRadius="8px"
             borderBottomRightRadius="8px"
           >
-            <Text variant="medium" fontWeight="700" mb="s1">
+            <Typography variant="medium" fontWeight="700" mb="s1">
               Olá, tech solver!
-            </Text>
-            <Text>Você está no Boilerplate da Nav9</Text>
+            </Typography>
+            <Typography>Você está no Boilerplate da Nav9</Typography>
           </Column>
         </Row>
       </Column>
     </>
-  );
-};
+  )
+}

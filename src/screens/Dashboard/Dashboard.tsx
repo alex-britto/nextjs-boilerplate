@@ -1,19 +1,19 @@
-import { useEffect } from "react";
+import { useEffect } from "react"
 
-import { useRouter } from "next/router";
-import Head from "next/head";
+import { useRouter } from "next/router"
+import Head from "next/head"
 
-import { Text } from "@/components";
+import { Typography } from "@/components"
 
-import { LoggedLayout } from "@/layout/logged";
-import { getUser } from "@/shared/helpers/user";
+import { LoggedLayout } from "@/layout/logged"
+import { getUser } from "@/shared/helpers/user"
 
 export const Dashboard = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   useEffect(() => {
-    !getUser() && router.push("/login");
-  }, []);
+    !getUser() && router.push("/login")
+  }, [])
 
   return (
     <>
@@ -21,8 +21,8 @@ export const Dashboard = () => {
         <title>Dashboard</title>
       </Head>
       <LoggedLayout>
-        <Text>Você está no dashboard</Text>
+        <Typography>Você está no dashboard</Typography>
       </LoggedLayout>
     </>
-  );
-};
+  )
+}

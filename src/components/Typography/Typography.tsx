@@ -1,14 +1,13 @@
+import styled, { css, IntrinsicElementsKeys } from "styled-components"
+
 import { DisplayProps, DecorationProps } from "@/shared/types/styledSystem"
 import {
   decorationUtilities,
   displayUtilities,
 } from "@/shared/utils/styledUtilities"
-import styled, { css } from "styled-components"
 
-import { IntrinsicElementsKeys } from "styled-components"
-
-interface TextProps extends DisplayProps, DecorationProps {
-  variant?: "bigger" | "big" | "medium" | "regular" | "small" | "tiny"
+interface TypographyProps extends DisplayProps, DecorationProps {
+  variant?: keyof typeof TEXT_VARIANTS
   as?: IntrinsicElementsKeys
 }
 
@@ -39,12 +38,12 @@ const TEXT_VARIANTS = {
   },
 }
 
-export const Text = styled.p<TextProps>(
-  displayUtilities,
-  decorationUtilities,
+export const Typography = styled.p<TypographyProps>(
   ({ variant = "regular" }) => css`
     font-weight: 400;
     font-size: ${TEXT_VARIANTS[variant]["font-size"]};
     line-height: ${TEXT_VARIANTS[variant]["line-height"]};
-  `
+  `,
+  displayUtilities,
+  decorationUtilities
 )
