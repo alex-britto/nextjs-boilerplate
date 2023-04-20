@@ -12,7 +12,7 @@ const preview: Preview = {
 				color: /(background|color)$/i,
 				date: /Date$/,
 			},
-			exclude: ['as', 'theme', 'ref', 'forwardedAs'],
+			exclude: ['theme', 'ref', 'forwardedAs'],
 			sort: 'alpha',
 		},
 	},
@@ -21,7 +21,9 @@ const preview: Preview = {
 export const decorators = [
 	(Story) => (
 		<ThemeProvider theme={theme}>
-			<Story />
+			<div id='component-container' style={{ width: 'fit-content' }}>
+				<Story />
+			</div>
 		</ThemeProvider>
 	),
 ]
