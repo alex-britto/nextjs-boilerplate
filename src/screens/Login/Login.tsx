@@ -3,6 +3,7 @@ import { FC } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
+import { useMutation } from '@tanstack/react-query'
 import { zodResolver } from '@hookform/resolvers/zod'
 
 import { Button, Column, TextField, Row, Typography } from '@/components'
@@ -11,6 +12,7 @@ import { UserProps } from '@/shared/interfaces/user'
 import { credentialsSchema } from '@/shared/schemas/loginCredentials'
 
 import { setUserLS } from '@/shared/helpers/user'
+import { LoginServices } from '@/services/login'
 
 export const Login: FC = () => {
 	const router = useRouter()
@@ -23,15 +25,25 @@ export const Login: FC = () => {
 		resolver: zodResolver(credentialsSchema),
 	})
 
-	const handleLogin = (data: UserProps) => {
-		setUserLS(data)
-		router.push('/dashboard')
-	}
+	const login = useMutation({
+		mutationFn: (data: UserProps) => {
+			return LoginServices.getCredentials(data)
+		},
+		onSuccess: ({ data }) => {
+			setUserLS(data)
+			router.push('/dashboard')
+		},
+		onError: ({ response }) => {
+			console.log(response)
+		},
+	})
+
+	const handleLogin = (user: UserProps) => login.mutate(user)
 
 	return (
 		<>
 			<Head>
-				<title>Dashboard</title>
+				<title>Login</title>
 			</Head>
 			<Column height='100vh' backgroundColor='gray' justifyContent='center'>
 				<Row
